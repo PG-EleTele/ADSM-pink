@@ -37,7 +37,7 @@ static void PrintAngleTable_Task(void *arg){
             }
         }
         // freeze screen and thread
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        //vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
@@ -45,6 +45,6 @@ void app_main(void)
 {
     Init();
     
-    xTaskCreate(PrintAngleTable_Task, "printing_angle_table", 1024 * 2, NULL, 2, NULL);
+    xTaskCreate(PrintAngleTable_Task, "printing_angle_table", 1024 * 2, NULL, 0, NULL);
     Lidar_CreateTask();
 }
