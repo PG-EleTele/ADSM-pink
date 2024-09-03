@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "uart.h": "c",
+        "esp_log.h": "c",
+        "gpio.h": "c",
+        "semphr.h": "c",
+        "iterator": "cpp",
+        "cstdint": "cpp",
+        "esp_system.h": "c",
+        "lidartask.h": "c",
+        "compare": "c",
+        "lidar.h": "c",
+        "freertos.h": "c",
+        "task.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabledIfIncludesResolve"
+}
