@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/ESP32/esp-idf-v5.3/**"
+                "C:/Users/kacpe/esp/v5.1.2/esp-idf/**"
             ],
             "defines": [
                 "_DEBUG",
