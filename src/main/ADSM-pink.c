@@ -4,6 +4,7 @@
 #include "esp_log.h"
 
 #include "LidarTask.h"
+#include "MotorsControl.h"
 
 //#define DEBUG
 
@@ -14,6 +15,7 @@ void Init(void)
     printf("Init\n");
 #endif
     Lidar_Init();
+    Motors_Init();
 }
 
 /**
@@ -44,7 +46,29 @@ static void PrintAngleTable_Task(void *arg){
 void app_main(void)
 {
     Init();
-    
-    xTaskCreate(PrintAngleTable_Task, "printing_angle_table", 1024 * 2, NULL, 0, NULL);
+
+    //xTaskCreate(PrintAngleTable_Task, "printing_angle_table", 1024 * 2, NULL, 0, NULL);
     Lidar_CreateTask();
+
+    while(1){
+        Motors_SetSpeed(true, 100, true);
+        Motors_SetSpeed(false, 50, true);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+        printf("right: %i\n", (int)Motors_encoderPulseCountMotorRight);
+        printf("left: %i\n", (int)Motors_encoderPulseCountMotorLeft);
+
+        //Motors_SetSpeed(true, 50, true);
+        //Motors_SetSpeed(false, 50, true);
+        //vTaskDelay(pdMS_TO_TICKS(5000));
+
+        Motors_SetSpeed(true, 0, true);
+        Motors_SetSpeed(false, 0, true);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+        printf("right: %i\n", (int)Motors_encoderPulseCountMotorRight);
+        printf("left: %i\n", (int)Motors_encoderPulseCountMotorLeft);
+        //Motors_SetSpeed(true, 100, false);
+        //Motors_SetSpeed(false, 100, false);
+        //vTaskDelay(pdMS_TO_TICKS(5000));
+    }
+
 }
