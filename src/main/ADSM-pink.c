@@ -55,6 +55,18 @@ bool IsObstacleInFront(){
     return false;
 }
 
+#define FREE_SPACE_THRESHOLD 1000
+int CheckSurroundings(){
+    for(int i = FREE_SPACE_ANGLE + 1; i < 180; i++){
+        if(Lidar_GetAngle(-i) > FREE_SPACE_THRESHOLD){
+            return -i;
+        }
+        else if(Lidar_GetAngle(i) > FREE_SPACE_THRESHOLD){
+            return i;
+        }
+    }
+}
+
 void Loop(){
     while(true){
         if(!IsObstacleInFront()){
@@ -64,6 +76,18 @@ void Loop(){
         else{
             Motors_SetSpeed(MOTOR_LEFT, 0, MOTOR_FORWARD);
             Motors_SetSpeed(MOTOR_RIGHT, 0, MOTOR_FORWARD);
+            vTaskDelay(pdMS_TO_TICKS(50));
+
+            int newAngle = CheckSurroundings();
+            printf("new angle: %i\n", newAngle);
+            if(newAngle < 0){
+                Motors_SetSpeed(MOTOR_LEFT, 25, MOTOR_BACKWARDS);
+                Motors_SetSpeed(MOTOR_RIGHT, 25, MOTOR_FORWARD);
+            }
+            else if(newAngle > 0){
+                Motors_SetSpeed(MOTOR_LEFT, 25, MOTOR_FORWARD);
+                Motors_SetSpeed(MOTOR_RIGHT, 25, MOTOR_BACKWARDS);
+            }
         }
         vTaskDelay(pdMS_TO_TICKS(50));
     }

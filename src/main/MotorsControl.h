@@ -28,7 +28,7 @@
 #define MOTOR_LEFT true
 #define MOTOR_RIGHT false
 #define MOTOR_FORWARD true
-#define MOTOR_BACKWARD false
+#define MOTOR_BACKWARDS false
 
 //////////////////////////////// PUBLIC  ////////////////////////////////
 /**
