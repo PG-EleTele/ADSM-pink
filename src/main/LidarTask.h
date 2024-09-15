@@ -62,7 +62,7 @@ void Lidar_SetAngle(unsigned int angle, uint16_t distance);
  * @param angle index of cell in table corresponding to the angle in degrees [0, 360]
  * @return distance at this angle in mm
  */
-int Lidar_GetAngle(unsigned int angle);
+int Lidar_GetAngle(int angle);
 
 
 // PRIVATE:

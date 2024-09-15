@@ -17,7 +17,6 @@
 #define MOTOR_DUTY               (8191) // Współczynnik wypełnienia (maksymalnie 2^13-1)
 #define MOTOR_FREQUENCY          (5000) // Częstotliwość PWM w Hz (5 kHz)
 
-// LEFT
 #define MOTOR_LEFT_PWM_PIN              (13) // Numer GPIO, na którym będzie PWM
 #define MOTOR_RIGHT_PWM_PIN             (12) // Numer GPIO, na którym będzie PWM
 #define MOTOR_LEFT_DIRECTION_PIN        (11) // Numer GPIO, na którym będzie PWM
@@ -29,6 +28,13 @@
 #define MOTOR_RIGHT false
 #define MOTOR_FORWARD true
 #define MOTOR_BACKWARDS false
+
+#define FORWARD_SPEED 100
+#define TURN_SPEED 25
+
+#define FREE_SPACE_ANGLE 15
+#define FREE_SPACE_DISTANCE 300
+#define FREE_SPACE_THRESHOLD 500
 
 //////////////////////////////// PUBLIC  ////////////////////////////////
 /**
@@ -63,6 +69,8 @@ void IRAM_ATTR Motors_EncoderIsrHandlerMotorLeft(void *arg);
 void IRAM_ATTR Motors_EncoderIsrHandlerMotorRight(void *arg);
 void Motors_InitEncoderInterruptLeft();
 void Motors_InitEncoderInterruptRight();
+void Motors_TurnLeft();
+void Motors_TurnRight();
 
 extern volatile int32_t Motors_encoderPulseCountMotorLeft;
 extern volatile int32_t Motors_encoderPulseCountMotorRight;

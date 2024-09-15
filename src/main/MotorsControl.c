@@ -72,6 +72,17 @@ void Motors_InitDirection()
     gpio_set_direction(MOTOR_RIGHT_DIRECTION_PIN, GPIO_MODE_OUTPUT);
 }
 
+void Motors_TurnLeft(){
+    Motors_SetSpeed(MOTOR_LEFT, TURN_SPEED, MOTOR_BACKWARDS);
+    Motors_SetSpeed(MOTOR_RIGHT, TURN_SPEED, MOTOR_FORWARD);
+}
+
+void Motors_TurnRight(){
+    Motors_SetSpeed(MOTOR_LEFT, TURN_SPEED, MOTOR_FORWARD);
+    Motors_SetSpeed(MOTOR_RIGHT, TURN_SPEED, MOTOR_BACKWARDS);
+}
+
+
 void Motors_InitEncoderInterruptLeft() {
     gpio_config_t io_conf = {
         .intr_type = GPIO_INTR_POSEDGE,

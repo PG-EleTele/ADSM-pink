@@ -24,10 +24,12 @@ void Lidar_SetAngle(unsigned int angle, uint16_t distance){
     }
 }
 
-int Lidar_GetAngle(unsigned int angle){
+int Lidar_GetAngle(int angle){
+    //printf("angle before: %i,", angle);
     if(angle < 0){
         angle += 360;
     }
+    //printf("after: %i\n", angle);
     int result = -2;
     angle = angle % ANGLES_IN_FULL_ROTATION;
     if(xSemaphoreTake(xMutex[angle], BLOCKTIME_IF_BUSSY_GET)){
