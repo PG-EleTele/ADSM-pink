@@ -57,7 +57,7 @@ bool IsObstacleInFront(){
 
 #define FREE_SPACE_THRESHOLD 1000
 int CheckSurroundings(){
-    for(int i = FREE_SPACE_ANGLE + 1; i < 180; i++){
+    for(int i = 0; i < 180; i++){
         if(Lidar_GetAngle(-i) > FREE_SPACE_THRESHOLD){
             return -i;
         }
