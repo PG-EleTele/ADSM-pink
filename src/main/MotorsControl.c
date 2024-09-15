@@ -109,10 +109,10 @@ void IRAM_ATTR Motors_EncoderIsrHandlerMotorRight(void *arg) {
 
 void Motors_SetLeftDirection(bool direction)
 {
-    gpio_set_level(MOTOR_LEFT_DIRECTION_PIN, direction);
+    gpio_set_level(MOTOR_LEFT_DIRECTION_PIN, !direction);
 }
 
 void Motors_SetRightDirection(bool direction)
 {
-    gpio_set_level(MOTOR_RIGHT_DIRECTION_PIN, !direction);
+    gpio_set_level(MOTOR_RIGHT_DIRECTION_PIN, direction);
 }

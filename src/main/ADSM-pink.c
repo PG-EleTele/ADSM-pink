@@ -43,7 +43,7 @@ static void PrintAngleTable_Task(void *arg){
     }
 }
 
-void loop(){
+void Loop(){
     while(true){
         if(Lidar_GetAngle(0) > 300){
             Motors_SetSpeed(MOTOR_LEFT, 100, MOTOR_FORWARD);
@@ -64,6 +64,6 @@ void app_main(void)
     //xTaskCreate(PrintAngleTable_Task, "printing_angle_table", 1024 * 2, NULL, 0, NULL);
     Lidar_CreateTask();
 
-    loop();
+    Loop();
 
 }
