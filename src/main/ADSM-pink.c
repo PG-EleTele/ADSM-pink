@@ -65,6 +65,8 @@ int CheckSurroundings(){
             return i;
         }
     }
+    printf("problem: no free space\n");
+    return 0;
 }
 
 void Loop(){
