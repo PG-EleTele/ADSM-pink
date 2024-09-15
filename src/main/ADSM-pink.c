@@ -43,9 +43,21 @@ static void PrintAngleTable_Task(void *arg){
     }
 }
 
+#define FREE_SPACE_ANGLE 15
+#define FREE_SPACE_DISTANCE 300
+
+bool IsObstacleInFront(){
+    for(int angle = -FREE_SPACE_ANGLE; angle <= FREE_SPACE_ANGLE; angle++){
+        if(Lidar_GetAngle(angle) < FREE_SPACE_DISTANCE){
+            return true;
+        }
+    }
+    return false;
+}
+
 void Loop(){
     while(true){
-        if(Lidar_GetAngle(0) > 300){
+        if(!IsObstacleInFront()){
             Motors_SetSpeed(MOTOR_LEFT, 100, MOTOR_FORWARD);
             Motors_SetSpeed(MOTOR_RIGHT, 100, MOTOR_FORWARD);
         }
