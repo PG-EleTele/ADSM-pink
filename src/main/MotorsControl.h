@@ -25,6 +25,11 @@
 #define MOTOR_LEFT_ENCODER_PIN          (9) // Numer GPIO, na którym będzie PWM
 #define MOTOR_RIGHT_ENCODER_PIN         (6) // Numer GPIO, na którym będzie PWM
 
+#define MOTOR_LEFT true
+#define MOTOR_RIGHT false
+#define MOTOR_FORWARD true
+#define MOTOR_BACKWARD false
+
 //////////////////////////////// PUBLIC  ////////////////////////////////
 /**
  * @brief Initializes motors module in project
