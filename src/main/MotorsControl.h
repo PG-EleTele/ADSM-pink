@@ -13,16 +13,16 @@
 #define MOTOR_MODE               LEDC_LOW_SPEED_MODE
 #define MOTOR_CHANNEL_LEFT       LEDC_CHANNEL_0
 #define MOTOR_CHANNEL_RIGHT      LEDC_CHANNEL_1
-#define MOTOR_DUTY_RES           LEDC_TIMER_13_BIT // Rozdzielczość licznika PWM (13-bit)
-#define MOTOR_DUTY               (8191) // Współczynnik wypełnienia (maksymalnie 2^13-1)
-#define MOTOR_FREQUENCY          (5000) // Częstotliwość PWM w Hz (5 kHz)
+#define MOTOR_DUTY_RES           LEDC_TIMER_13_BIT  // PWM Resolution (13-bit)
+#define MOTOR_DUTY               (8191)             // Max 2^13-1
+#define MOTOR_FREQUENCY          (5000)             // PWM Frequency in Hz (5 kHz)
 
-#define MOTOR_LEFT_PWM_PIN              (13) // Numer GPIO, na którym będzie PWM
-#define MOTOR_RIGHT_PWM_PIN             (12) // Numer GPIO, na którym będzie PWM
-#define MOTOR_LEFT_DIRECTION_PIN        (11) // Numer GPIO, na którym będzie PWM
-#define MOTOR_RIGHT_DIRECTION_PIN       (10) // Numer GPIO, na którym będzie PWM
-#define MOTOR_LEFT_ENCODER_PIN          (9) // Numer GPIO, na którym będzie PWM
-#define MOTOR_RIGHT_ENCODER_PIN         (6) // Numer GPIO, na którym będzie PWM
+#define MOTOR_LEFT_PWM_PIN              (13)
+#define MOTOR_RIGHT_PWM_PIN             (12)
+#define MOTOR_LEFT_DIRECTION_PIN        (11)
+#define MOTOR_RIGHT_DIRECTION_PIN       (10)
+#define MOTOR_LEFT_ENCODER_PIN          (9)
+#define MOTOR_RIGHT_ENCODER_PIN         (6)
 
 #define MOTOR_LEFT true
 #define MOTOR_RIGHT false
